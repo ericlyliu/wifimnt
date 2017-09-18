@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+<!-- [START standard_mappings] -->
+    <servlet>
+      <servlet-name>linkAccount</servlet-name>
+      <servlet-class>com.gfiber.wifiportal.LinkServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>linkAccount</servlet-name>
+      <url-pattern>/link</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+      <servlet-name>deleteAccount</servlet-name>
+      <servlet-class>com.gfiber.wifiportal.DeleteWifiInfoServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>deleteAccount</servlet-name>
+      <url-pattern>/deleteaccount</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+      <servlet-name>createAccount</servlet-name>
+      <servlet-class>com.gfiber.wifiportal.CreateWifiInfoServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>createAccount</servlet-name>
+      <url-pattern>/createaccount</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+      <servlet-name>createSsid</servlet-name>
+      <servlet-class>com.gfiber.wifiportal.CreateSsidServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>createSsid</servlet-name>
+      <url-pattern>/createssid</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+      <servlet-name>deleteSsid</servlet-name>
+      <servlet-class>com.gfiber.wifiportal.DeleteSsidServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>deleteSsid</servlet-name>
+      <url-pattern>/deletessid</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+      <servlet-name>editSsid</servlet-name>
+      <servlet-class>com.gfiber.wifiportal.EditSsidServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>editSsid</servlet-name>
+      <url-pattern>/editssid</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+      <servlet-name>wphome.jsp</servlet-name>
+      <jsp-file>/wphome.jsp</jsp-file>
+    </servlet>
+    
+    <servlet-mapping>
+      <servlet-name>wphome.jsp</servlet-name>
+      <url-pattern>/wifiportal</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>wphome.jsp</welcome-file>
+    </welcome-file-list>
+<!-- [END standard_mappings] -->
+
+<!-- [START Objectify] -->
+    <filter>
+      <filter-name>ObjectifyFilter</filter-name>
+      <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
+    </filter>
+    <filter-mapping>
+      <filter-name>ObjectifyFilter</filter-name>
+      <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <listener>
+      <listener-class>com.gfiber.wifiportal.OfyHelper</listener-class>
+    </listener>
+<!-- [END Objectify] -->
+</web-app>
